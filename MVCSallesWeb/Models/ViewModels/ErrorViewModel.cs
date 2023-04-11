@@ -1,4 +1,4 @@
-namespace MVCSallesWeb.Models
+namespace MVCSallesWeb.Models.ViewModels
 {
     public class ErrorViewModel
     {

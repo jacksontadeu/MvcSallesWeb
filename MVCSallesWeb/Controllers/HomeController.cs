@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MVCSallesWeb.Models;
+using MVCSallesWeb.Models.ViewModels;
 using System.Diagnostics;
 
 namespace MVCSallesWeb.Controllers
@@ -17,7 +17,10 @@ namespace MVCSallesWeb.Controllers
         {
             return View();
         }
-
+        public IActionResult Teste()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();

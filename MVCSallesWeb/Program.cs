@@ -1,12 +1,22 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MVCSallesWeb.Data;
+using System.Configuration;
+using static System.Net.Mime.MediaTypeNames;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("MVCSallesWebContext");
+
 builder.Services.AddDbContext<MVCSallesWebContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("MVCSallesWebContext") ?? throw new InvalidOperationException("Connection string 'MVCSallesWebContext' not found.")));
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
 
 var app = builder.Build();
 
